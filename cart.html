@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<!-- saved from url=(0049)https://getbootstrap.com/docs/4.3/examples/album/ -->
+<html lang="en">
+
+<head>
+  <link href="css/carrito.css" rel="stylesheet">
+  <script src="js/comprobarLogin.js"></script>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+  <meta name="google-signin-scope" content="profile email">
+  <meta name="google-signin-client_id" content="82751548078-ak6scpnkojgcebd8uenunmm9rhufe8ep.apps.googleusercontent.com">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <title>eMercado - Todo lo que busques está aquí</title>
+  <script src="js/cerrarSesion.js"></script>
+  <link href="css/font-awesome.min.css" rel="stylesheet">
+  <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
+  <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+  </style>
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/styles.css" rel="stylesheet">
+  <link href="css/dropzone.css" rel="stylesheet">
+</head>
+
+<body>
+  <nav class="site-header sticky-top py-1 bg-dark">
+    <div class="container d-flex flex-column flex-md-row justify-content-between">
+      <a class="py-2 d-none d-md-inline-block" href="home.html">Home</a> 
+      <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
+      <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
+      <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
+      <div class="dropdown">
+        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="usuariolog" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+          <a class="dropdown-item" href="cart.html">Mi carrito</a>
+          <a class="dropdown-item" href="my-profile.html">Mi perfil</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="index.html" onclick="signOut()">Cerrar Sesion</a>
+        </div>
+      </div>
+      </div>
+  </nav>
+  <div class="container p-5">
+    
+
+<!-------------INTENTO DE CARRITO--------------------------->
+
+<div class="container-fluid">
+  <div class="row">
+      <aside class="col-lg-9">
+          <div class="card">
+              <div class="table-responsive">
+                  <table class="table table-borderless table-shopping-cart">
+                     
+                      <tbody id="prueba">
+                         
+                      </tbody>
+                  </table>
+              </div>
+          </div>
+      </aside>
+      <aside class="col-lg-3">
+          <div class="card mb-3">
+              <div class="card-body">
+                  <form>
+                      <div class="form-group"> <label>Tienés un cupón?</label>
+                          <div class="input-group"> <input type="text" class="form-control coupon" name="" placeholder="Ingresá el código"> <span class="input-group-append"> <button class="btn btn-primary btn-apply coupon">Aplicar</button> </span> </div>
+                      </div>
+                      <div class="form-group"> <label>Seleccionar tipo de envio</label>
+                        <a href="#" title="2 a 5 días, Costo de 15% sobre el subtotal." class="btn btn-out btn-danger btn-square btn-main" data-abc="true">Premium</a> 
+                        <a href="#" title="5 a 8 días, Costo de 7% sobre el subtotal." class="btn btn-out btn-warning btn-square btn-main mt-2" data-abc="true">Express</a>
+                        <a href="#" title="12 a 15 días, Costo de 5% sobre el subtotal." class="btn btn-out btn-info btn-square btn-main mt-2" data-abc="true">Standard</a>
+                    </div>
+                  </form>
+              </div>
+          </div>
+          <div class="card">
+              <div class="card-body">
+                  <dl class="dlist-align">
+                      <dt id="precioTotal">Precio Total:</dt>
+                      <dd class="text-right ml-3"></dd>
+                  </dl>
+                  <dl class="dlist-align">
+                      <dt id="costoEnvio">Costo de envío:</dt>
+                      <dd class="text-right text-danger ml-3"></dd>
+                  </dl>
+                  <dl class="dlist-align">
+                      <dt id="precioFinal">Precio Final:</dt>
+                      <dd class="text-right text-dark b ml-3"><strong></strong></dd>
+                  </dl>
+                  <hr> <a href="#" class="btn btn-out btn-primary btn-square btn-main" data-abc="true"> Finalizar compra </a> 
+                       <a href="#" class="btn btn-out btn-success btn-square btn-main mt-2" data-abc="true">Continuar comprando</a>
+              </div>
+          </div>
+      </aside>
+  </div>
+</div>
+<!---------------------------------------------------------->
+
+<div ></div>
+
+
+    
+  </div>
+  <footer class="text-muted bg-light">
+    <div class="container">
+      <p class="float-right">
+        <a href="#">Volver arriba</a>
+      </p>
+      <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
+      <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
+    </div>
+  </footer>
+  <div id="spinner-wrapper">
+    <div class="lds-ring">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+  <script src="js/jquery-3.4.1.min.js"></script>
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/dropzone.js"></script>
+  <script src="js/init.js"></script>
+  <script src="js/cart.js"></script>
+</body>
+
+</html>
