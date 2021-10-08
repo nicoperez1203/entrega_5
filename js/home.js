@@ -8,11 +8,13 @@ mostrarNomb()
 
 
 Swal.fire({
-    position: 'center',
-    icon: 'info',
     title: '¡Gracias por visitar e-mercado!',
+    imageUrl: 'img/smile.png',
+    imageWidth: 200,
+    imageHeight: 200,
+    imageAlt: 'Carita feliz',
     showConfirmButton: false,
-    timer: 2000
+    timer: 2500
   })
 
 

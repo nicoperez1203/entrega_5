@@ -48,8 +48,8 @@
       <div class="dropdown">
         <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="usuariolog" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-          <a class="dropdown-item" href="cart.html">Mi carrito</a>
-          <a class="dropdown-item" href="my-profile.html">Mi perfil</a>
+          <a class="dropdown-item" href="cart.html">Mi carrito <i class="fas fa-shopping-cart"></i></a>
+            <a class="dropdown-item" href="my-profile.html">Mi perfil <i class="far fa-address-card"></i></a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="index.html" onclick="signOut()">Cerrar Sesion</a>
         </div>
@@ -90,9 +90,12 @@
                           <div class="input-group"> <input type="text" class="form-control coupon" name="" placeholder="Ingresá el código"> <span class="input-group-append"> <button class="btn btn-primary btn-apply coupon">Aplicar</button> </span> </div>
                       </div>
                       <div class="form-group"> <label>Seleccionar tipo de envio</label>
-                        <a href="#" title="2 a 5 días, Costo de 15% sobre el subtotal." class="btn btn-out btn-danger btn-square btn-main" data-abc="true">Premium</a> 
-                        <a href="#" title="5 a 8 días, Costo de 7% sobre el subtotal." class="btn btn-out btn-warning btn-square btn-main mt-2" data-abc="true">Express</a>
-                        <a href="#" title="12 a 15 días, Costo de 5% sobre el subtotal." class="btn btn-out btn-info btn-square btn-main mt-2" data-abc="true">Standard</a>
+                        <a id="standard" title="12 a 15 días, Costo de 5% sobre el subtotal." onclick="standard()" class="btn btn-out btn-info btn-square btn-main mt-2" data-abc="true">Standard<i class="fas fa-shipping-fast"></i></a>
+                        
+                        <a id="express" title="5 a 8 días, Costo de 7% sobre el subtotal." onclick="express()" class="btn btn-out btn-warning btn-square btn-main mt-2" data-abc="true">Express<i class="fas fa-shipping-fast"></i><i class="fas fa-shipping-fast"></i></a>
+
+                        <a id="premium" title="2 a 5 días, Costo de 15% sobre el subtotal." onclick="premium()" class="btn btn-out btn-danger btn-square btn-main mt-2" data-abc="true">Premium<i class="fas fa-shipping-fast"></i><i class="fas fa-shipping-fast"></i><i class="fas fa-shipping-fast"></i></a> 
+                        
                     </div>
                   </form>
               </div>
@@ -100,7 +103,7 @@
           <div class="card">
               <div class="card-body">
                   <dl class="dlist-align">
-                      <dt id="precioSubTotal">Sub-Total:</dt>
+                      <dt id="precioSubTotal"></dt>
                       <dd class="text-right ml-3"></dd>
                   </dl>
                   <dl class="dlist-align">

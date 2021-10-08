@@ -98,7 +98,7 @@ function mostrarProductos(){
                         </div>
                         <p class="mb-1">` + product.description + `</p>
                         <br>
-                        <p class="mb-1">El precio unitario es: ` + product.cost + `U$S</p>
+                        <p class="mb-1">El precio unitario es: U$S ` + product.cost + `</p>
                     </div>
                 </div>
             </a>

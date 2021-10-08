@@ -15,6 +15,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
             prodCarrito = resultObj.data;
             datosCarro = prodCarrito.articles;
             mostrarCarrito(datosCarro);
+            
 
 
         }
@@ -22,6 +23,8 @@ document.addEventListener("DOMContentLoaded", function (e) {
 });
 
 var prodCarrito = [];
+var subTotal = 0;
+
 
 
 
@@ -32,19 +35,16 @@ function mostrarCarrito(array) {
     for (let i = 0; i < array.length; i++) {
         let datoscarrito = array[i];
         let totalProducto = datoscarrito.unitCost * datoscarrito.count;
-        // let subTotal =+ subTotal + totalProducto;
+        
         
         if (datoscarrito.currency === "USD"){
             totalProducto = totalProducto * 40;
             }
+        
+        subTotal += totalProducto;
+        
 
-        // let subTotal = totalProducto + subTotal;
-        // document.getElementById("precioSubTotal").innerHTML = subTotal;
-
-         
-       
-
-        {
+            {
 
             data +=
 
@@ -55,16 +55,16 @@ function mostrarCarrito(array) {
                                     <td>
                                         <figure class="itemside align-items-center">
                                         <div class="aside"><img src="` + datoscarrito.src + `" class="img-sm"></div>
-                                        <figcaption class="info"> <a href="#" class="title text-dark" data-abc="true">`+ datoscarrito.name + `</a>
-                                        <p class="text-muted small" name="subtotal" >Costo unitario: ` + datoscarrito.currency + ` ` + datoscarrito.unitCost + `</p>
+                                        <figcaption class="info"> <a href="products.html" class="title" data-abc="true">`+ datoscarrito.name + `</a>
+                                        <p class="text-muted small" name"costoUnitario" >Costo unitario: ` + datoscarrito.currency + ` ` + datoscarrito.unitCost + `</p>
                                         </figcaption>
                                         </figure>
                                     </td>
                                     <td> 
-                                        <input type=number value="` + datoscarrito.count + `">
+                                        <input type=number onchange="myFunction()" name="cantidades" min="0" value="` + datoscarrito.count + `">
                                     </td>
                                     <td>
-                                        <div class="price-wrap"> <var class="price">$` + totalProducto + `</var></div>
+                                        <div class="price-wrap" name="totalProducto"> <var class="price">$` + totalProducto + `</var></div>
                                     </td>
                                     <td class="text-right d-none d-md-block"><a href="" class="btn btn-danger" data-abc="true"><i class="fa fa-trash"></i> Remover</a>
                                     </td>
@@ -75,13 +75,73 @@ function mostrarCarrito(array) {
         `
         }
     
-
+        
+        
         document.getElementById("carrito").innerHTML = data;
-        // document.getElementById("precioSubTotal").innerHTML = subTotal;
+        document.getElementById("precioSubTotal").innerHTML = `Sub-Total: $` +subTotal;
+        
         
         
     }
 }
+
+
+
+
+function standard(){
+    
+    
+    nuevoValor = (subTotal * 5) / 100;
+    document.getElementById("costoEnvio").innerHTML = `Costo de envío: $` +nuevoValor;
+    precioFinal = subTotal + nuevoValor;
+    document.getElementById("precioFinal").innerHTML = `Total: $` +precioFinal;
+
+}
+    
+
+
+
+function express(){
+
+    
+    
+    nuevoValor = (subTotal * 7) / 100;
+    document.getElementById("costoEnvio").innerHTML = `Costo de envío: $` +nuevoValor;
+    precioFinal = subTotal + nuevoValor;
+    document.getElementById("precioFinal").innerHTML = `Total: $` +precioFinal;
+    
+
+}
+
+function premium(){
+
+    
+    
+    nuevoValor = (subTotal * 15) / 100;
+    document.getElementById("costoEnvio").innerHTML = `Costo de envío: $` +nuevoValor;
+    precioFinal = subTotal + nuevoValor;
+    document.getElementById("precioFinal").innerHTML = `Total: $` +precioFinal;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
