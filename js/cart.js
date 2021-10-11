@@ -24,6 +24,10 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
 var prodCarrito = [];
 var subTotal = 0;
+var subsub = 0;
+
+
+
 
 
 
@@ -34,14 +38,17 @@ function mostrarCarrito(array) {
     let data = "";
     for (let i = 0; i < array.length; i++) {
         let datoscarrito = array[i];
-        let totalProducto = datoscarrito.unitCost * datoscarrito.count;
+        
         
         
         if (datoscarrito.currency === "USD"){
-            totalProducto = totalProducto * 40;
+            datoscarrito.unitCost = datoscarrito.unitCost * 40;
             }
+
+            let totalProducto = datoscarrito.unitCost * datoscarrito.count;
         
-        subTotal += totalProducto;
+             subTotal += totalProducto;
+       
         
 
             {
@@ -56,16 +63,18 @@ function mostrarCarrito(array) {
                                         <figure class="itemside align-items-center">
                                         <div class="aside"><img src="` + datoscarrito.src + `" class="img-sm"></div>
                                         <figcaption class="info"> <a href="products.html" class="title" data-abc="true">`+ datoscarrito.name + `</a>
-                                        <p class="text-muted small" name"costoUnitario" >Costo unitario: ` + datoscarrito.currency + ` ` + datoscarrito.unitCost + `</p>
+                                        
                                         </figcaption>
                                         </figure>
                                     </td>
                                     <td> 
-                                        <input type=number onchange="myFunction()" name="cantidades" min="0" value="` + datoscarrito.count + `">
+                                    <p class="precio"> ` + datoscarrito.unitCost + `</p>
                                     </td>
-                                    <td>
-                                        <div class="price-wrap" name="totalProducto"> <var class="price">$` + totalProducto + `</var></div>
+                                    
+                                    <td> 
+                                        <input type=number id="cant${i}"onchange="tiempoReal()" style="width: 45px" name="cantidades" min="0" value="` + datoscarrito.count + `">
                                     </td>
+                                    
                                     <td class="text-right d-none d-md-block"><a href="" class="btn btn-danger" data-abc="true"><i class="fa fa-trash"></i> Remover</a>
                                     </td>
                                 </tr>
@@ -78,7 +87,7 @@ function mostrarCarrito(array) {
         
         
         document.getElementById("carrito").innerHTML = data;
-        document.getElementById("precioSubTotal").innerHTML = `Sub-Total: $` +subTotal;
+        document.getElementById("precioSubTotal").innerHTML = subTotal;
         
         
         
@@ -90,10 +99,11 @@ function mostrarCarrito(array) {
 
 function standard(){
     
-    
-    nuevoValor = (subTotal * 5) / 100;
+    document.getElementById("tipoEnvio").innerHTML = "Standard";
+    valor = document.getElementById("precioSubTotal").innerHTML;
+    nuevoValor = (valor * 5) / 100;
     document.getElementById("costoEnvio").innerHTML = `Costo de envío: $` +nuevoValor;
-    precioFinal = subTotal + nuevoValor;
+    precioFinal = parseFloat(valor) + nuevoValor;
     document.getElementById("precioFinal").innerHTML = `Total: $` +precioFinal;
 
 }
@@ -103,11 +113,11 @@ function standard(){
 
 function express(){
 
-    
-    
-    nuevoValor = (subTotal * 7) / 100;
+    document.getElementById("tipoEnvio").innerHTML = "Express";
+    valor = document.getElementById("precioSubTotal").innerHTML;
+    nuevoValor = (valor * 7) / 100;
     document.getElementById("costoEnvio").innerHTML = `Costo de envío: $` +nuevoValor;
-    precioFinal = subTotal + nuevoValor;
+    precioFinal = parseFloat(valor) + nuevoValor;
     document.getElementById("precioFinal").innerHTML = `Total: $` +precioFinal;
     
 
@@ -115,14 +125,39 @@ function express(){
 
 function premium(){
 
-    
-    
-    nuevoValor = (subTotal * 15) / 100;
+    document.getElementById("tipoEnvio").innerHTML = "Premium";
+    valor = document.getElementById("precioSubTotal").innerHTML;
+    nuevoValor = (valor * 15) / 100;
     document.getElementById("costoEnvio").innerHTML = `Costo de envío: $` +nuevoValor;
-    precioFinal = subTotal + nuevoValor;
+    precioFinal = parseFloat(valor) + nuevoValor;
     document.getElementById("precioFinal").innerHTML = `Total: $` +precioFinal;
 
 }
+
+
+
+
+function tiempoReal(){
+    let precios = document.getElementsByClassName("precio");
+    let cantidades = document.getElementsByTagName("input")
+    
+    subsub = 0;
+    for(let i = 0; i < precios.length; i++){
+        
+        subsub += parseFloat(precios[i].innerHTML) * cantidades[i].value;
+        }
+
+        document.getElementById("precioSubTotal").innerHTML= subsub;
+
+    // standard()
+        
+    // express()
+
+    // premium()
+        
+}
+
+
 
 
 
