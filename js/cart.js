@@ -41,6 +41,7 @@ function mostrarCarrito(array) {
         
         
         
+        
         if (datoscarrito.currency === "USD"){
             datoscarrito.unitCost = datoscarrito.unitCost * 40;
             }
@@ -72,10 +73,10 @@ function mostrarCarrito(array) {
                                     </td>
                                     
                                     <td> 
-                                        <input type=number id="cant${i}"onchange="tiempoReal()" style="width: 45px" name="cantidades" min="0" value="` + datoscarrito.count + `">
+                                        <input type=number id="cant${i}" onchange="tiempoReal()" style="width: 45px" name="cantidades" min="0" value="` + datoscarrito.count + `">
                                     </td>
                                     
-                                    <td class="text-right d-none d-md-block"><a href="" class="btn btn-danger" data-abc="true"><i class="fa fa-trash"></i> Remover</a>
+                                    <td class="text-right d-none d-md-block"><a onclick="deleteRow(this)" class="btn btn-danger" data-abc="true"><i class="fa fa-trash"></i> Remover</a>
                                     </td>
                                 </tr>
                                 
@@ -97,49 +98,54 @@ function mostrarCarrito(array) {
 
 
 
-function standard(){
+  function standard(){
     
-    document.getElementById("tipoEnvio").innerHTML = "Standard";
-    valor = document.getElementById("precioSubTotal").innerHTML;
-    nuevoValor = (valor * 5) / 100;
-    document.getElementById("costoEnvio").innerHTML = `Costo de envío: $` +nuevoValor;
-    precioFinal = parseFloat(valor) + nuevoValor;
-    document.getElementById("precioFinal").innerHTML = `Total: $` +precioFinal;
-
-}
     
+      document.getElementById("tipoEnvio").innerHTML = "Standard";
+      valor = document.getElementById("precioSubTotal").innerHTML;
+      nuevoValor = (valor * 5) / 100;
+      document.getElementById("costoEnvio").innerHTML = `Costo de envío: $` +nuevoValor;
+      precioFinal = parseFloat(valor) + nuevoValor;
+      document.getElementById("precioFinal").innerHTML = `Total: $` +precioFinal;
 
-
-
-function express(){
-
-    document.getElementById("tipoEnvio").innerHTML = "Express";
-    valor = document.getElementById("precioSubTotal").innerHTML;
-    nuevoValor = (valor * 7) / 100;
-    document.getElementById("costoEnvio").innerHTML = `Costo de envío: $` +nuevoValor;
-    precioFinal = parseFloat(valor) + nuevoValor;
-    document.getElementById("precioFinal").innerHTML = `Total: $` +precioFinal;
+  }
     
 
-}
 
-function premium(){
 
-    document.getElementById("tipoEnvio").innerHTML = "Premium";
-    valor = document.getElementById("precioSubTotal").innerHTML;
-    nuevoValor = (valor * 15) / 100;
-    document.getElementById("costoEnvio").innerHTML = `Costo de envío: $` +nuevoValor;
-    precioFinal = parseFloat(valor) + nuevoValor;
-    document.getElementById("precioFinal").innerHTML = `Total: $` +precioFinal;
+  function express(){
 
-}
+    
+      document.getElementById("tipoEnvio").innerHTML = "Express";
+      valor = document.getElementById("precioSubTotal").innerHTML;
+      nuevoValor = (valor * 7) / 100;
+      document.getElementById("costoEnvio").innerHTML = `Costo de envío: $` +nuevoValor;
+      precioFinal = parseFloat(valor) + nuevoValor;
+      document.getElementById("precioFinal").innerHTML = `Total: $` +precioFinal;
+    
+
+  }
+
+  function premium(){
+
+    
+      document.getElementById("tipoEnvio").innerHTML = "Premium";
+      valor = document.getElementById("precioSubTotal").innerHTML;
+      nuevoValor = (valor * 15) / 100;
+      document.getElementById("costoEnvio").innerHTML = `Costo de envío: $` +nuevoValor;
+      precioFinal = parseFloat(valor) + nuevoValor;
+      document.getElementById("precioFinal").innerHTML = `Total: $` +precioFinal;
+
+      
+
+  }
 
 
 
 
 function tiempoReal(){
     let precios = document.getElementsByClassName("precio");
-    let cantidades = document.getElementsByTagName("input")
+    let cantidades = document.getElementsByTagName("input");
     
     subsub = 0;
     for(let i = 0; i < precios.length; i++){
@@ -149,13 +155,16 @@ function tiempoReal(){
 
         document.getElementById("precioSubTotal").innerHTML= subsub;
 
-    // standard()
-        
-    // express()
-
-    // premium()
-        
 }
+
+function deleteRow(r)
+    {
+    var fila = r.parentNode.parentNode.rowIndex
+    document.getElementById("tablaProductos").deleteRow(fila)
+}
+
+
+
 
 
 
