@@ -67,6 +67,8 @@ function mostrarCarrito(array) {
         document.getElementById("carrito").innerHTML = data;
         document.getElementById("precioSubTotal").innerHTML = subTotal;
         
+         
+        
     }
 }
 
@@ -107,15 +109,18 @@ function mostrarCarrito(array) {
 function tiempoReal(){
     let precios = document.getElementsByClassName("precio");
     let cantidades = document.getElementsByTagName("input");
-    
+    let cantidadItems = 0;
     
     subsub = 0;
     for(let i = 0; i < precios.length; i++){
             subsub += parseFloat(precios[i].innerHTML) * cantidades[i].value;
             document.getElementById("subtProd"+i).innerHTML = parseFloat(precios[i].innerHTML) * cantidades[i].value;
+            cantidadItems += parseFloat(cantidades[i].value);
         }
 
-        document.getElementById("precioSubTotal").innerHTML= subsub;
+        document.getElementById("precioSubTotal").innerHTML = subsub;
+        document.getElementById("cantidadItems").innerHTML = cantidadItems;
+        document.getElementById("numeroProductos").innerHTML = cantidadItems;
         
         
 
@@ -136,7 +141,12 @@ function deleteRow(r)
     {
     var fila = r.parentNode.parentNode.rowIndex;
     document.getElementById("tablaProductos").deleteRow(fila);
+    actualizar(array);
     }
+
+
+
+
 
 
 

@@ -7,7 +7,8 @@ function mostrarNomb(){
 mostrarNomb()
 
 
-Swal.fire({
+
+    Swal.fire({
     title: '¡Gracias por visitar e-mercado!',
     imageUrl: 'img/smile.png',
     imageWidth: 200,
@@ -16,6 +17,7 @@ Swal.fire({
     showConfirmButton: false,
     timer: 2500
   })
+
 
 
 

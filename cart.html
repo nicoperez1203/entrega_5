@@ -53,7 +53,7 @@
       <div class="dropdown">
         <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="usuariolog" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-          <a class="dropdown-item" href="cart.html">Mi carrito<i class="fas fa-shopping-cart"></i><span id="numeroProductos" class="badge badge-danger rounded-circle">2</span></a>
+          <a class="dropdown-item" href="cart.html">Mi carrito<i class="fas fa-shopping-cart"></i><span id="numeroProductos" class="badge badge-danger rounded-circle"></span></a>
           <a class="dropdown-item" href="my-profile.html">Mi perfil <i class="far fa-address-card"></i></a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="index.html" onclick="signOut()">Cerrar Sesion</a>
@@ -165,6 +165,10 @@
           
           <div class="card">
               <div class="card-body">
+                <dl class="dlist-align">
+                  <dt>Cantidad de items: <span id="cantidadItems" ></span></dt>
+                  <dd class="text-right ml-3"></dd>
+              </dl>
                 <dl class="dlist-align">
                   <dt>Sub-Total: $<span id="precioSubTotal" ></span></dt>
                   <dd class="text-right ml-3"></dd>
