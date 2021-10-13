@@ -79,15 +79,57 @@
                               <th scope="col" style="text-align: center;">Producto</th>
                               <th scope="col" width="120">c/u (en $)</th>
                               <th scope="col" width="120">Unidades</th>
-                              <th scope="col" class="text-right d-none d-md-block" width="150"></th>
+                              <th scope="col" width="120">Subtot. Prod. (en $)</th>
+                              <th scope="col" class="text-right d-none d-md-block" width="200"></th>
                           </tr>
                       </thead>
                       </tbody>
                   </table>
               </div>
           </div>
-      </aside>
-      <aside class="col-lg-3">
+          <br>
+          
+        
+        <!--FORMULARIO ENVIO-->
+        
+    <div class="card">
+      <div class="card-body">
+            <h5>Datos para el envio</h5>
+        <br>
+              <form class="row g-3 needs-validation" novalidate>
+                <div class="col-md-4">
+                  <label for="validationCustom01" class="form-label">Nombre</label>
+                  <input type="text" class="form-control" id="validationCustom01" title="Ingrese el nombre de la persona que recibe el producto" required>
+                </div>
+            
+                <div class="col-md-5">
+                  <label for="validationCustom03" class="form-label">Calle</label>
+                  <input type="text" class="form-control" id="validationCustom02" required>
+                </div>
+
+                <div class="col-md-2">
+                  <label for="validationCustom03" class="form-label">Nº Puerta</label>
+                  <input type="number" class="form-control" id="validationCustom03" required>
+                </div>
+
+                <div class="col-md-4">
+                  <label for="validationCustom05" class="form-label">Pais</label>
+                  <input type="text" class="form-control" id="validationCustom04" required>
+                </div>
+
+                <div class="col-md-5">
+                  <label for="validationCustom03" class="form-label">Esquina</label>
+                  <input type="text" class="form-control" id="validationCustom05" required>
+                </div>
+              </form>
+      </div>
+    </div>
+<!------------------------------------------------------------------------------------------------------------------------------------------->
+
+</aside>
+      
+
+<aside class="col-lg-3">
           <div class="card mb-3">
               <div class="card-body">
                   <form>
@@ -97,25 +139,37 @@
                       <hr>
                       <div class="form-group"> <label>Seleccionar tipo de envio</label>
                        
-                      
+                        <form>
+                          <p>
+                              
+                              <select class="form-select" multiple aria-label="multiple select example" size="3" id="envio">
+                              <option selected value="1">Standard</option>
+                              <option value="2">Express</option>
+                              <option value="3">Premium</option>
+                              </select>
+                        </p>
+                        </form>
                         
-                        <a id="standard" title="12 a 15 días, Costo de 5% sobre el subtotal." onclick="standard()" class="btn btn-out btn-info btn-square btn-main mt-2" data-abc="true">Standard<i class="fas fa-shipping-fast"></i></a> 
+                        <!-- <a id="standard" title="12 a 15 días, Costo de 5% sobre el subtotal." onclick="standard()" class="btn btn-out btn-info btn-square btn-main mt-2" data-abc="true">Standard<i class="fas fa-shipping-fast"></i></a> 
                         
                         <a id="express" title="5 a 8 días, Costo de 7% sobre el subtotal." onclick="express()" class="btn btn-out btn-warning btn-square btn-main mt-2" data-abc="true">Express<i class="fas fa-shipping-fast"></i><i class="fas fa-shipping-fast"></i></a>
 
-                        <a id="premium" title="2 a 5 días, Costo de 15% sobre el subtotal." onclick="premium()" class="btn btn-out btn-danger btn-square btn-main mt-2" data-abc="true">Premium<i class="fas fa-shipping-fast"></i><i class="fas fa-shipping-fast"></i><i class="fas fa-shipping-fast"></i></a>
+                        <a id="premium" title="2 a 5 días, Costo de 15% sobre el subtotal." onclick="premium()" class="btn btn-out btn-danger btn-square btn-main mt-2" data-abc="true">Premium<i class="fas fa-shipping-fast"></i><i class="fas fa-shipping-fast"></i><i class="fas fa-shipping-fast"></i></a> -->
                         
                     </div>
                   </form>
               </div>
           </div>
+          <br>
+          <br>
           
           <div class="card">
               <div class="card-body">
-                  <dl class="dlist-align">
-                      <dt>Sub-Total: $<span id="precioSubTotal" ></span></dt>
-                      <dd class="text-right ml-3"></dd>
-                  </dl>
+                <dl class="dlist-align">
+                  <dt>Sub-Total: $<span id="precioSubTotal" ></span></dt>
+                  <dd class="text-right ml-3"></dd>
+              </dl>
+                  
                   <dl class="dlist-align">
                     <dt class="small text-muted">Envio seleccionado: <span id="tipoEnvio"></span></dt>
                     <dd class="text-right ml-3"></dd>
@@ -132,14 +186,15 @@
                        <a href="categories.html" class="btn btn-out btn-success btn-square btn-main mt-2" data-abc="true">Continuar comprando</a>
               </div>
           </div>
-      </aside>
+          
+</aside>
+   </div>
   </div>
-</div>
 </div>
 
 <!---------------------------------------------------------->
 
- 
+<br><br><br><br><br>
   <footer class="text-muted bg-light">
     <div class="container">
       <p class="float-right">
